@@ -1,0 +1,38 @@
+# ============================================================
+# Job Bot — Preferencias de búsqueda
+# Edita este archivo con tus preferencias personales
+# ============================================================
+
+# Títulos de cargo que te interesan (se usan como keywords de búsqueda)
+job_titles:
+  - "Senior Software Engineer"
+  - "Tech Lead"
+  - "Backend Developer"
+
+# Keywords técnicas adicionales para la búsqueda
+keywords:
+  - "Python"
+  - "Django"
+  - "React"
+
+# Ubicaciones donde quieres trabajar
+locations:
+  - "Santiago"
+  - "Remoto"
+
+# Keywords que descartan automáticamente un aviso (sin usar API)
+exclude_keywords:
+  - "junior"
+  - "trainee"
+  - "practicante"
+  - "intern"
+  - "pasantía"
+
+# Puntaje mínimo de relevancia para recibir la notificación (1-10)
+relevance_threshold: 7
+
+# Máximo de avisos nuevos a procesar por ejecución (limita el costo de API)
+max_jobs_per_run: 50
+
+# Páginas a revisar por portal por cada combinación keyword+ubicación
+max_pages_per_portal: 3

@@ -1,0 +1,42 @@
+# Environment variables — NEVER commit
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Playwright browsers (large, cached by CI)
+# Uncomment if you don't want to commit browser binaries:
+# ~/.cache/ms-playwright/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# seen_jobs.json is intentionally tracked (bot updates it)
+# Do NOT add seen_jobs.json here
