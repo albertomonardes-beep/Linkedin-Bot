@@ -1,21 +1,46 @@
 # ============================================================
-# Job Bot — Preferencias de búsqueda
-# Edita este archivo con tus preferencias personales
+# Job Bot — Preferencias de búsqueda — Alberto Monardes
 # ============================================================
 
-# Títulos de cargo que te interesan (se usan como keywords de búsqueda)
+# Títulos de cargo a buscar (se usan como keywords en los portales)
+# Se incluyen variantes de escritura porque cada portal es distinto
 job_titles:
-  - "Senior Software Engineer"
-  - "Tech Lead"
-  - "Backend Developer"
+  - "Gerente de Operaciones"
+  - "Gerente de Logística"
+  - "Gerente de Supply Chain"
+  - "Gerente de Producción"
+  - "Gerente de Manufactura"
+  - "Subgerente de Operaciones"
+  - "Subgerente de Logística"
+  - "Subgerente de Supply Chain"
+  - "Subgerente de Producción"
+  - "Subgerente de Manufactura"
+  - "Sub Gerente de Operaciones"
+  - "Sub Gerente de Logística"
+  - "Sub Gerente de Supply Chain"
+  - "Sub Gerente de Producción"
+  - "Sub Gerente de Manufactura"
+  - "Sub-Gerente de Operaciones"
+  - "Sub-Gerente de Logística"
+  - "Sub-Gerente de Supply Chain"
+  - "Sub-Gerente de Producción"
+  - "Sub-Gerente de Manufactura"
 
-# Keywords técnicas adicionales para la búsqueda
+# Keywords adicionales para afinar el scoring de la IA
 keywords:
-  - "Python"
-  - "Django"
-  - "React"
+  - "Supply Chain"
+  - "Logística"
+  - "Operaciones"
+  - "Manufactura"
+  - "Producción"
+  - "Lean"
+  - "Mejora continua"
+  - "Seis Sigma"
+  - "WMS"
+  - "SAP"
+  - "Consumo masivo"
 
-# Ubicaciones donde quieres trabajar
+# Ubicaciones aceptadas
 locations:
   - "Santiago"
   - "Remoto"
@@ -27,11 +52,17 @@ exclude_keywords:
   - "practicante"
   - "intern"
   - "pasantía"
+  - "asistente"
+  - "analista"
+  - "coordinador"
+  - "auxiliar"
+  - "operario"
+  - "técnico"
 
-# Puntaje mínimo de relevancia para recibir la notificación (1-10)
+# Puntaje mínimo para recibir notificación (1-10)
 relevance_threshold: 7
 
-# Máximo de avisos nuevos a procesar por ejecución (limita el costo de API)
+# Máximo de avisos nuevos a procesar por ejecución (limita costo de API)
 max_jobs_per_run: 50
 
 # Páginas a revisar por portal por cada combinación keyword+ubicación
