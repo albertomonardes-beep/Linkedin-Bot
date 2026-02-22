@@ -18,10 +18,10 @@ Bot automatizado que busca empleos en portales chilenos, los filtra con IA (Clau
 - [x] Código implementado y subido al repo
 - [x] `profile/cv.md` — CV real cargado
 - [x] `profile/preferences.yaml` — Preferencias configuradas
-- [ ] Secret `TELEGRAM_BOT_TOKEN` — pendiente
-- [ ] Secret `TELEGRAM_CHAT_ID` — pendiente
-- [ ] Secret `ANTHROPIC_API_KEY` — pendiente
-- [ ] Secret `GH_PAT` — pendiente
+- [x] Secret `TELEGRAM_BOT_TOKEN` — configurado
+- [x] Secret `TELEGRAM_CHAT_ID` — configurado
+- [x] Secret `ANTHROPIC_API_KEY` — configurado
+- [x] Secret `GH_PAT` — configurado
 - [ ] Prueba local con `.env`
 - [ ] Primer run en GitHub Actions
 
