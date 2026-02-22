@@ -58,9 +58,17 @@ exclude_keywords:
   - "auxiliar"
   - "operario"
   - "técnico"
+  - "supervisor"
+  - "jefe"
+  - "encargado"
+  - "inspector"
+  - "líder"
+  - "lider"
+  - "ingeniero"
+  - "ejecutivo"
 
 # Puntaje mínimo para recibir notificación (1-10)
-relevance_threshold: 7
+relevance_threshold: 8
 
 # Máximo de avisos nuevos a procesar por ejecución (limita costo de API)
 max_jobs_per_run: 50
