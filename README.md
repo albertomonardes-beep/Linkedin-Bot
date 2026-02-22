@@ -19,11 +19,11 @@ Bot automatizado que busca empleos en portales chilenos, los filtra con IA (Clau
 - [x] `profile/cv.md` — CV real cargado
 - [x] `profile/preferences.yaml` — Preferencias configuradas
 - [x] Secret `TELEGRAM_BOT_TOKEN` — configurado
-- [x] Secret `TELEGRAM_CHAT_ID` — configurado
+- [x] Secret `TELEGRAM_CHAT_ID` — configurado (obtener vía `https://api.telegram.org/botTOKEN/getUpdates`)
 - [x] Secret `ANTHROPIC_API_KEY` — configurado
 - [x] Secret `GH_PAT` — configurado
-- [ ] Prueba local con `.env`
-- [ ] Primer run en GitHub Actions
+- [x] Primer run en GitHub Actions — completado ✅
+- [x] Mensajes llegando a Telegram — funcionando ✅
 
 ---
 
@@ -156,6 +156,23 @@ Portal: trabajando.cl
 
 ---
 
+## Historial de cambios
+
+### Sesión 22-02-2026
+- ✅ Setup completo: Telegram, Anthropic, GitHub Secrets
+- ✅ Primer run exitoso en GitHub Actions
+- ✅ Mensajes llegando a Telegram
+- 🔧 Corregido: `TELEGRAM_CHAT_ID` — obtener vía `getUpdates` en vez de `@userinfobot`
+- 🔧 Corregido: `max_tokens` del matcher subido de 1024 a 4096 (respuesta truncada)
+- 🔧 Corregido: workflow agrega `git pull --rebase` antes del push
+- 🔧 Filtro de fecha: máximo 14 días de antigüedad en todos los portales
+- 🔧 LinkedIn: filtro de fecha cambiado de 24h a 14 días
+- 🔧 Exclusiones ampliadas: supervisor, jefe, encargado, inspector, líder, ingeniero, ejecutivo
+- 🔧 Umbral de relevancia subido de 7 a 8
+- 🟡 Pendiente: afinar filtros para perfil senior (+15 años experiencia, nivel Gerente/Subgerente únicamente
+
+---
+
 ## Preferencias configuradas
 
 Los cargos que busca el bot actualmente (`profile/preferences.yaml`):
@@ -167,7 +184,7 @@ Los cargos que busca el bot actualmente (`profile/preferences.yaml`):
   - Producción
   - Manufactura
 
-**Excluye automáticamente:** junior, analista, coordinador, asistente, técnico, practicante, auxiliar, operario.
+**Excluye automáticamente:** junior, analista, coordinador, asistente, técnico, practicante, auxiliar, operario, supervisor, jefe, encargado, inspector, líder, ingeniero, ejecutivo.
 
 Para cambiar los cargos o keywords, edita `profile/preferences.yaml` y haz push.
 
