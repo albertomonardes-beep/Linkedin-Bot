@@ -17,7 +17,7 @@ SEARCH_URL = (
     BASE_URL
     + "/jobs/search?keywords={kw}&location={loc}"
     + "&geoId=" + CHILE_GEO_ID
-    + "&f_TPR=r86400"  # posted in last 24h
+    + "&f_TPR=r1209600"  # posted in last 14 days
 )
 
 

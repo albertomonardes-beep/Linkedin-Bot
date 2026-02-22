@@ -128,6 +128,17 @@ def main() -> None:
     logger.info("Total raw listings scraped: %d", len(all_jobs))
 
     # ------------------------------------------------------------------
+    # 1b. Filtrar avisos con más de 14 días de antigüedad
+    # ------------------------------------------------------------------
+    max_days: int = prefs.get("max_days_old", 14)
+    before_filter = len(all_jobs)
+    all_jobs = [j for j in all_jobs if j.days_old is None or j.days_old <= max_days]
+    logger.info(
+        "After date filter (<= %d days): %d jobs (removed %d old listings)",
+        max_days, len(all_jobs), before_filter - len(all_jobs),
+    )
+
+    # ------------------------------------------------------------------
     # 2. Deduplicate against seen_jobs.json
     # ------------------------------------------------------------------
     storage = Storage(SEEN_PATH)

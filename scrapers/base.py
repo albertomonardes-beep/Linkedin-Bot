@@ -1,6 +1,7 @@
 """Base scraper and shared data structures."""
 from __future__ import annotations
 
+import re
 import time
 import random
 from abc import ABC, abstractmethod
@@ -27,6 +28,8 @@ class JobListing:
     # Derived
     score: Optional[int] = None
     score_reason: str = ""
+
+    days_old: Optional[int] = None  # None = fecha desconocida (pasa el filtro)
 
     def unique_id(self) -> str:
         """Stable identifier for deduplication."""
@@ -57,6 +60,40 @@ def make_session(retries: int = 3) -> requests.Session:
         }
     )
     return session
+
+
+def days_old_from_text(text: str) -> Optional[int]:
+    """Convierte texto de fecha relativa en español a días.
+
+    Ejemplos: 'hace 3 días' → 3, 'hace 1 semana' → 7, 'hace 2 meses' → 60.
+    Retorna None si no se puede parsear (el aviso pasa el filtro).
+    """
+    if not text:
+        return None
+    t = text.lower().strip()
+    # horas → menos de 1 día
+    m = re.search(r"hace\s+(\d+)\s+hora", t)
+    if m:
+        return 0
+    # días
+    m = re.search(r"hace\s+(\d+)\s+d[ií]a", t)
+    if m:
+        return int(m.group(1))
+    # semanas
+    m = re.search(r"hace\s+(\d+)\s+semana", t)
+    if m:
+        return int(m.group(1)) * 7
+    # meses
+    m = re.search(r"hace\s+(\d+)\s+mes", t)
+    if m:
+        return int(m.group(1)) * 30
+    # "ayer"
+    if "ayer" in t:
+        return 1
+    # "hoy"
+    if "hoy" in t:
+        return 0
+    return None
 
 
 def random_delay(min_s: float = 2.0, max_s: float = 8.0) -> None:

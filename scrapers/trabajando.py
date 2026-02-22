@@ -6,7 +6,7 @@ from urllib.parse import quote_plus
 
 from bs4 import BeautifulSoup
 
-from .base import BaseScraper, JobListing, random_delay
+from .base import BaseScraper, JobListing, random_delay, days_old_from_text
 
 logger = logging.getLogger(__name__)
 
@@ -86,6 +86,14 @@ class TrabajandoScraper(BaseScraper):
             salary_el = card.select_one("span[class*='salario'], span[class*='salary']")
             salary = salary_el.get_text(strip=True) if salary_el else ""
 
+            # Date
+            date_el = card.select_one(
+                "span[class*='date'], span[class*='fecha'], time, span[class*='time'], "
+                "div[class*='date'], p[class*='date']"
+            )
+            date_text = date_el.get_text(strip=True) if date_el else ""
+            days = days_old_from_text(date_text)
+
             return JobListing(
                 url=url,
                 title=title,
@@ -94,6 +102,7 @@ class TrabajandoScraper(BaseScraper):
                 portal=self.portal_name,
                 description=description,
                 salary=salary,
+                days_old=days,
             )
         except Exception as exc:
             logger.debug("[trabajando.cl] Card parse error: %s", exc)
