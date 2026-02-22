@@ -1,5 +1,5 @@
 name: Job Search Bot
-
+# v2
 on:
   schedule:
     # Runs every 3 hours during Chilean business hours (Mon–Fri, 08:00–20:00 CLT = 11:00–23:00 UTC)
