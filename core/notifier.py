@@ -23,8 +23,9 @@ class TelegramNotifier:
         token: str | None = None,
         chat_id: str | None = None,
     ):
-        self.token = token or os.environ["TELEGRAM_BOT_TOKEN"]
-        self.chat_id = chat_id or os.environ["TELEGRAM_CHAT_ID"]
+        self.token = (token or os.environ["TELEGRAM_BOT_TOKEN"]).strip()
+        self.chat_id = (chat_id or os.environ["TELEGRAM_CHAT_ID"]).strip()
+        logger.info("Telegram chat_id cargado: '%s'", self.chat_id)
 
     # ------------------------------------------------------------------
     # Public API
