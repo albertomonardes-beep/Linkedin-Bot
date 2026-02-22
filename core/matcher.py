@@ -131,7 +131,7 @@ class Matcher:
             return jobs
         filtered = []
         for job in jobs:
-            haystack = f"{job.title} {job.description}".lower()
+            haystack = job.title.lower()  # solo filtra por título, no descripción
             if not any(kw in haystack for kw in self.exclude_kws):
                 filtered.append(job)
         excluded = len(jobs) - len(filtered)
