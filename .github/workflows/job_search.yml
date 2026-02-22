@@ -76,4 +76,5 @@ jobs:
           git add seen_jobs.json
           # Only commit if there are actual changes
           git diff --cached --quiet || git commit -m "chore: update seen_jobs.json [skip ci]"
+          git pull --rebase origin master
           git push
