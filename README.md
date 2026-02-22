@@ -169,7 +169,10 @@ Portal: trabajando.cl
 - 🔧 LinkedIn: filtro de fecha cambiado de 24h a 14 días
 - 🔧 Exclusiones ampliadas: supervisor, jefe, encargado, inspector, líder, ingeniero, ejecutivo
 - 🔧 Umbral de relevancia subido de 7 a 8
-- 🟡 Pendiente: afinar filtros para perfil senior (+15 años experiencia, nivel Gerente/Subgerente únicamente
+- ✅ Filtro exclusiones aplicado solo al título del cargo (no a la descripción)
+- ✅ seen_jobs.json limpiado para reprocesar todos los empleos
+- ✅ Primera oferta relevante recibida y validada por el usuario
+- 🟢 Bot funcionando correctamente en producción
 
 ---
 
