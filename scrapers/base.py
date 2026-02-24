@@ -33,7 +33,9 @@ class JobListing:
 
     def unique_id(self) -> str:
         """Stable identifier for deduplication."""
-        return self.url.strip().rstrip("/")
+        from urllib.parse import urlparse
+        parsed = urlparse(self.url.strip())
+        return f"{parsed.scheme}://{parsed.netloc}{parsed.path}".rstrip("/")
 
 
 def make_session(retries: int = 3) -> requests.Session:
